@@ -4,7 +4,7 @@ import { ThemeContext } from "../contexts/ThemeContext"
 
 import { THEMES } from "../styles/themes"
 
-const ThemeSelect = () => {
+const Theme = () => {
   const { colorMode, setColorMode } = React.useContext(ThemeContext)
   return (
     <select
@@ -20,4 +20,4 @@ const ThemeSelect = () => {
   )
 }
 
-export default ThemeSelect
+export default Theme
