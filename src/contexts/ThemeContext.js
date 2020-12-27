@@ -1,53 +1,53 @@
-import React from 'react'
+import React from 'react';
 
 import {
   COLORS,
   COLOR_MODE_KEY,
   INITIAL_COLOR_MODE_CSS_PROP,
-} from '../styles/themes'
+} from '../styles/themes';
 
-export const ThemeContext = React.createContext()
+export const ThemeContext = React.createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [colorMode, rawSetColorMode] = React.useState(undefined)
+  const [colorMode, rawSetColorMode] = React.useState(undefined);
 
   React.useEffect(() => {
-    const root = window.document.documentElement
+    const root = window.document.documentElement;
 
     // Because colors matter so much for the initial page view, we're
     // doing a lot of the work in gatsby-ssr. That way it can happen before
     // the React component tree mounts.
     const initialColorValue = root.style.getPropertyValue(
       INITIAL_COLOR_MODE_CSS_PROP
-    )
+    );
 
-    rawSetColorMode(initialColorValue)
-  }, [])
+    rawSetColorMode(initialColorValue);
+  }, []);
 
   const contextValue = React.useMemo(() => {
     function setColorMode(newValue) {
-      const root = window.document.documentElement
+      const root = window.document.documentElement;
 
-      localStorage.setItem(COLOR_MODE_KEY, newValue)
+      localStorage.setItem(COLOR_MODE_KEY, newValue);
 
       Object.entries(COLORS).forEach(([name, colorByTheme]) => {
-        const cssVarName = `--color-${name}`
+        const cssVarName = `--color-${name}`;
 
-        root.style.setProperty(cssVarName, colorByTheme[newValue])
-      })
+        root.style.setProperty(cssVarName, colorByTheme[newValue]);
+      });
 
-      rawSetColorMode(newValue)
+      rawSetColorMode(newValue);
     }
 
     return {
       colorMode,
       setColorMode,
-    }
-  }, [colorMode, rawSetColorMode])
+    };
+  }, [colorMode, rawSetColorMode]);
 
   return (
     <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};

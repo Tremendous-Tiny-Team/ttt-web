@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { ThemeContext } from '../contexts/ThemeContext'
+import { ThemeContext } from '../contexts/ThemeContext';
 
-import { THEMES } from '../styles/themes'
+import { THEMES } from '../styles/themes';
 
 const Theme = () => {
-  const { colorMode, setColorMode } = React.useContext(ThemeContext)
+  const { colorMode, setColorMode } = React.useContext(ThemeContext);
   return (
     <select
       value={colorMode}
@@ -17,7 +17,7 @@ const Theme = () => {
         </option>
       ))}
     </select>
-  )
-}
+  );
+};
 
-export { Theme }
+export { Theme };
