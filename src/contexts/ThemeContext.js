@@ -6,6 +6,7 @@ import {
   INITIAL_COLOR_MODE_CSS_PROP,
 } from '../styles/themes';
 
+/** @type {React.Context<ContextValue>} */
 export const ThemeContext = createContext({
   colorMode: null,
   setColorMode: null,
@@ -28,13 +29,7 @@ export const ThemeProvider = ({ children }) => {
     rawSetColorMode(initialColorValue);
   }, []);
 
-  /**
-   * @typedef {Object} Props
-   * @prop {string} colorMode
-   * @prop {(newValue: string) => void} setColorMode
-   *
-   * @type {React.useMemo<Props>}
-   */
+
   const contextValue = useMemo(() => {
     /** @param {string} newValue */
     function setColorMode(newValue) {
@@ -63,3 +58,8 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+/**
+ * @typedef {Object} ContextValue
+ * @prop {string} colorMode
+ * @prop {(newValue: string) => void} setColorMode
+ */
