@@ -36,7 +36,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "yarn run test:type && yarn run test:dumb",
+    "test:unit": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "test:type": "tsc"
   },
   "repository": {
