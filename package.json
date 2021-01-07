@@ -13,13 +13,16 @@
     "gatsby-plugin-sharp": "^2.8.0",
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-transformer-sharp": "^2.6.0",
-    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-helmet": "^6.1.0",
+    "prettier": "2.2.1",
+    "typescript": "^4.1.3"
   },
   "keywords": [
     "gatsby"
@@ -32,7 +35,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "yarn run test:type && yarn run test:dumb",
+    "test:unit": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test:type": "tsc"
   },
   "repository": {
     "type": "git",

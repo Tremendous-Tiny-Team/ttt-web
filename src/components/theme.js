@@ -4,6 +4,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 import { THEMES } from '../styles/themes';
 
+/** @type {React.FC} */
 const Theme = () => {
   const { colorMode, setColorMode } = React.useContext(ThemeContext);
   return (

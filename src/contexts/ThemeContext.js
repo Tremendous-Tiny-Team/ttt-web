@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 
 import {
   COLORS,
@@ -6,10 +6,15 @@ import {
   INITIAL_COLOR_MODE_CSS_PROP,
 } from '../styles/themes';
 
-export const ThemeContext = React.createContext();
+/** @type {React.Context<ContextValue>} */
+export const ThemeContext = createContext({
+  colorMode: null,
+  setColorMode: null,
+});
 
+/** @type {React.FC} */
 export const ThemeProvider = ({ children }) => {
-  const [colorMode, rawSetColorMode] = React.useState(undefined);
+  const [colorMode, rawSetColorMode] = useState(undefined);
 
   React.useEffect(() => {
     const root = window.document.documentElement;
@@ -24,7 +29,9 @@ export const ThemeProvider = ({ children }) => {
     rawSetColorMode(initialColorValue);
   }, []);
 
-  const contextValue = React.useMemo(() => {
+
+  const contextValue = useMemo(() => {
+    /** @param {string} newValue */
     function setColorMode(newValue) {
       const root = window.document.documentElement;
 
@@ -51,3 +58,8 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+/**
+ * @typedef {Object} ContextValue
+ * @prop {string} colorMode
+ * @prop {(newValue: string) => void} setColorMode
+ */
