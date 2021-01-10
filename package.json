@@ -21,6 +21,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-helmet": "^6.1.0",
+    "husky": "^4.3.7",
     "pre-commit": "^1.2.2",
     "prettier": "2.2.1",
     "typescript": "^4.1.3"
@@ -29,7 +30,9 @@
     "gatsby"
   ],
   "license": "0BSD",
-  "pre-commit": [ "test:type" ],
+  "hooks": {
+    "pre-commit": "npm test:type"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -37,7 +40,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "yarn run test:type && yarn run test:dumb",
+    "test": "yarn run test:type",
     "test:unit": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "test:type": "tsc"
   },
