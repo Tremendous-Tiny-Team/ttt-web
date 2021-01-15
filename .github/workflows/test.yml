@@ -5,6 +5,13 @@ name: Run All Tests
 
 on:
   pull_request:
+    types: [
+      opened,
+      labeled,
+      ready_for_review,
+      reopened,
+      synchronize,
+    ]
     branches:
       - main
       - release**
