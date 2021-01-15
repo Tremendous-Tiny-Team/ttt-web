@@ -30,4 +30,4 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
     - run: yarn install
-    - run: yarn test
+    - run: yarn test:type
