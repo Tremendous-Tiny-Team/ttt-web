@@ -5,7 +5,12 @@ name: Run All Tests
 
 on:
   pull_request:
-    branches: [ test/* ]
+    branches:
+      - main
+      - release**
+      - production**
+      - hotfix**
+      - lab**
 
 env:
   NODE_VERSION: '14.x'
