@@ -20,7 +20,7 @@ env:
   NODE_VERSION: '14.x'
 
 jobs:
-  type:
+  Type Check:
     runs-on: ubuntu-latest
 
     steps:
