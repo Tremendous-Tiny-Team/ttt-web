@@ -41,8 +41,5 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
 
-    - name: Get yarn cache or yarn install
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: yarn install
-
+    - run: yarn install
     - run: yarn test:type
