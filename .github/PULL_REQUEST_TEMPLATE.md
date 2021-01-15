@@ -5,7 +5,7 @@
 - [ ] Chrome
 
 ### Issuer
-- https://github.com/kavimaluskam/esilet-web/issues/TICKET_ID
+- https://github.com/Tremendous-Tiny-Team/ttt-web/issues/TICKET_ID
 
 ### TODO
 - [ ] any follow-up here that is out of scope
