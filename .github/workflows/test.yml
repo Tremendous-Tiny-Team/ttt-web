@@ -21,6 +21,8 @@ env:
 
 jobs:
   Type:
+    if: |
+      github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:
@@ -47,6 +49,8 @@ jobs:
     - run: yarn test:type
 
   Unit-Test:
+    if: |
+      github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:
