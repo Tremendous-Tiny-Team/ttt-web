@@ -22,7 +22,11 @@ env:
 jobs:
   Type:
     if: |
-      github.event.pull_request.draft == false
+      github.event.pull_request.draft == false ||
+      (
+        github.event.action == 'labeled' &&
+        contains(github.event.pull_request.labels.*.name, 'run-all-test')
+      )
     runs-on: ubuntu-latest
 
     steps:
@@ -49,11 +53,18 @@ jobs:
     - run: yarn test:type
 
   Unit-Test:
-    if: |
-      github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:
+    - name: Dump job context
+      env:
+        JOB_CONTEXT: ${{ toJson(github.event.action) }}
+      run: echo "$JOB_CONTEXT"
+    - name: Dump job context
+      env:
+        JOB_CONTEXT: ${{ toJson(github.event.pull_request) }}
+      run: echo "$JOB_CONTEXT"
+
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
