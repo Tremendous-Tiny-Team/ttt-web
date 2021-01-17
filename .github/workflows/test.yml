@@ -53,6 +53,12 @@ jobs:
     - run: yarn test:type
 
   Unit-Test:
+    if: |
+      github.event.pull_request.draft == false ||
+      (
+        github.event.action == 'labeled' &&
+        contains(github.event.pull_request.labels.*.name, 'run-all-test')
+      )
     runs-on: ubuntu-latest
 
     steps:
