@@ -1,5 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
+
+import { Language } from './language';
 import { Theme } from './theme';
 
 /** @type {React.FC<Props>} */
@@ -29,6 +31,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <Theme />
+      <Language />
     </div>
   </header>
 );
