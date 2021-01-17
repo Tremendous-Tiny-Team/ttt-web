@@ -56,15 +56,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Dump job context
-      env:
-        JOB_CONTEXT: ${{ toJson(github.event.action) }}
-      run: echo "$JOB_CONTEXT"
-    - name: Dump job context
-      env:
-        JOB_CONTEXT: ${{ toJson(github.event.pull_request) }}
-      run: echo "$JOB_CONTEXT"
-
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
