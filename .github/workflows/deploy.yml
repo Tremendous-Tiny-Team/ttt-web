@@ -11,6 +11,10 @@ on:
 
 env:
   NODE_VERSION: '14.x'
+  REPO: $GITHUB_REPOSITORY
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  COMMIT_HASH: $GITHUB_SHA
+  GITHUB_REF: $GITHUB_REF
 
 jobs:
   Deploy:
@@ -35,6 +39,11 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
+    
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJSON(github) }}
+      run: echo "$GITHUB_CONTEXT"
 
     - run: yarn install
     - run: yarn deploy
