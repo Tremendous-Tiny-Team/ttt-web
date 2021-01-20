@@ -22,6 +22,8 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
     dest: deployEnv,
     tag: deployVersion || '',
     message: `Build from ${branch} ${process.env.COMMIT_HASH}`,
+  }, (data) => {
+    console.log(data);
   });
   console.log({
     repo: `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.REPO}.git`,
@@ -29,5 +31,5 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
     dest: deployEnv,
     tag: deployVersion || '',
     message: `Build from ${branch} ${process.env.COMMIT_HASH}`,
-  })
+  });
 });
