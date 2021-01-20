@@ -1,9 +1,9 @@
 import {exec} from 'child_process';
 import * as ghPages from 'gh-pages';
 
-const branch = process.env.GITHUB_REF;
+const branch = process.env.GITHUB_REF.replace('refs/heads/', '');
 console.log(branch);
-const deployEnv = branch.replace('refs/heads/', '').match(/^main|^release|^production|^hotfix|^lab-\d+/)?.[0];
+const deployEnv = branch.match(/^main|^release|^production|^hotfix|^lab-\d+/)?.[0];
 const deployVersion = deployEnv?.search(/release|production|hotfix/) ? branch.split('/')?.[0] : null;
 
 process.env.PATH_PREFIX = deployEnv;
