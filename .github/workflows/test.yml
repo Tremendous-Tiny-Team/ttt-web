@@ -14,7 +14,7 @@ on:
       - release**
       - production**
       - hotfix**
-      - lab**
+      - lab-**
 
 env:
   NODE_VERSION: '14.x'
