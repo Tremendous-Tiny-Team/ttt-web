@@ -3,8 +3,8 @@ import * as ghPages from 'gh-pages';
 
 const branch = process.env.GITHUB_REF;
 console.log(branch);
-const deployEnv = branch.match(/^main|^release|^production|^hotfix|^lab-\d+/)?.[0];
-const deployVersion = deployEnv.search(/release|production|hotfix/) ? branch.split('/')?.[0] : null;
+const deployEnv = branch.replace('refs/heads/', '').match(/^main|^release|^production|^hotfix|^lab-\d+/)?.[0];
+const deployVersion = deployEnv?.search(/release|production|hotfix/) ? branch.split('/')?.[0] : null;
 
 process.env.PATH_PREFIX = deployEnv;
 
