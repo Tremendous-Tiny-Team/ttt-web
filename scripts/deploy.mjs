@@ -17,11 +17,11 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
   console.log(stdout);
 
   ghPages.publish('public', {
-    repo: `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.REPO}.git`,
+    repo: `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`,
     branch: 'public/gh-pages',
     dest: deployEnv,
     tag: deployVersion || '',
-    message: `Build from ${branch} ${process.env.COMMIT_HASH}`,
+    message: `Build from ${branch} ${process.env.GITHUB_SHA}`,
   }, (data) => {
     console.log(data);
   });
@@ -30,6 +30,6 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
     branch: 'public/gh-pages',
     dest: deployEnv,
     tag: deployVersion || '',
-    message: `Build from ${branch} ${process.env.COMMIT_HASH}`,
+    message: `Build from ${branch} ${process.env.GITHUB_SHA}`,
   });
 });
