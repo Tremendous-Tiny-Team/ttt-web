@@ -10,9 +10,9 @@ const Theme = () => {
   return (
     <select
       value={colorMode}
-      onChange={event => setColorMode(event.target.value)}
+      onChange={(event) => setColorMode(event.target.value)}
     >
-      {THEMES.map(theme => (
+      {THEMES.map((theme) => (
         <option key={theme} value={theme}>
           {theme}
         </option>

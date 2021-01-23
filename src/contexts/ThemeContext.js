@@ -37,7 +37,7 @@ const ThemeProvider = ({ children }) => {
 
   const contextValue = useMemo(() => {
     /** @param {string} newValue */
-    const setColorMode = newValue => {
+    const setColorMode = (newValue) => {
       const root = window.document.documentElement;
 
       localStorage.setItem(COLOR_MODE_KEY, newValue);
