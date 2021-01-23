@@ -27,7 +27,7 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
         name: process.env.GITHUB_ACTOR,
         email: 'victor77.dev@gmail.com',
       },
-      repo: `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`,
+      repo: `https://x-access-token:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`,
       branch: 'public/gh-pages',
       dest: deployEnv,
       tag: deployVersion || '',
