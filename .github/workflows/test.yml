@@ -20,7 +20,7 @@ env:
   NODE_VERSION: '14.x'
 
 jobs:
-  Type:
+  Type-Check:
     if: |
       github.event.pull_request.draft == false ||
       (
