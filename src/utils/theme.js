@@ -61,11 +61,12 @@ const MagicScriptTag = () => {
  * Only light mode will be available for users with JS disabled.
  */
 const FallbackStyles = () => {
-  // Create a string holding each CSS variable:
-  /*
-      `--color-text: black;
-      --color-background: white;`
-    */
+  /**
+   * Create a string holding each CSS variable:
+   *
+   * `--color-text: black;
+   * --color-background: white;`
+   */
 
   const cssVariableString = Object.entries(COLORS).reduce(
     (acc, [name, colorByTheme]) => {
