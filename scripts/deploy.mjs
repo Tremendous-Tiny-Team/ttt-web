@@ -25,7 +25,7 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
     {
       user: {
         name: process.env.GITHUB_ACTOR,
-        email: 'victor77.dev@gmail.com',
+        email: process.env.GITHUB_ACTOR_EMAIL,
       },
       repo: `https://x-access-token:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`,
       branch: 'public/gh-pages',
@@ -40,7 +40,7 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
   console.log({
     user: {
       name: process.env.GITHUB_ACTOR,
-      email: 'victor77.dev@gmail.com',
+      email: process.env.GITHUB_ACTOR_EMAIL,
     },
     repo: `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`,
     branch: 'public/gh-pages',

@@ -12,6 +12,7 @@ on:
 env:
   NODE_VERSION: '14.x'
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_ACTOR_EMAIL: ${{ github.event.head_commit.committer.email }}
 
 jobs:
   Deploy:
