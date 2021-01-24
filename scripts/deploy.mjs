@@ -20,6 +20,7 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
 
   console.log(stdout);
 
+  ghPages.clean();
   ghPages.publish(
     'public',
     {
