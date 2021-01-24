@@ -33,8 +33,11 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
       tag: deployVersion || '',
       message: `Build from ${branch} ${process.env.GITHUB_SHA}`,
     },
-    (data) => {
-      console.log(data);
+    (error) => {
+      if (error) {
+        console.log(error);
+        process.exit(1);
+      }
     }
   );
   console.log({
