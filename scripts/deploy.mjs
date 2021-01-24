@@ -6,8 +6,8 @@ const deployEnv = branch.match(
   /^main|^release|^production|^hotfix|^lab-\d+/
 )?.[0];
 const deployVersion =
-  deployEnv?.search(/release|production|hotfix/) !== -1
-    ? branch.split('/')?.[0]
+  branch?.search(/(release|production|hotfix).+/) !== -1
+    ? branch.replace('/', '-')
     : null;
 const [_, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
