@@ -7,9 +7,10 @@ console.log(`Deploying ${branch}`);
 const deployEnv = branch.match(
   /^main|^release|^production|^hotfix|^lab-\d+/
 )?.[0];
-const deployVersion = deployEnv?.search(/release|production|hotfix/)
-  ? branch.split('/')?.[0]
-  : null;
+const deployVersion =
+  deployEnv?.search(/release|production|hotfix/) !== -1
+    ? branch.split('/')?.[0]
+    : null;
 
 process.env.PATH_PREFIX = deployEnv;
 
