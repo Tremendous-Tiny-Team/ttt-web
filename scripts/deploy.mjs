@@ -41,15 +41,4 @@ exec('gatsby build --prefix-paths', (error, stdout, stderr) => {
       }
     }
   );
-  console.log({
-    user: {
-      name: process.env.GITHUB_ACTOR,
-      email: process.env.GITHUB_ACTOR_EMAIL,
-    },
-    repo: `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`,
-    branch: 'public/gh-pages',
-    dest: deployEnv,
-    tag: deployVersion || '',
-    message: `Build from ${branch} ${process.env.GITHUB_SHA}`,
-  });
 });
