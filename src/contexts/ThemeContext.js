@@ -66,8 +66,7 @@ const ThemeProvider = ({ children }) => {
 };
 
 const useTheme = () => {
-  const context = useContext(ThemeContext);
-  return context;
+    return useContext(ThemeContext);
 };
 
 /**
