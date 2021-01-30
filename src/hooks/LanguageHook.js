@@ -2,7 +2,7 @@ import { resolveLangCodeFromFilePath } from '../utils/language';
 import { useLanguage } from '../contexts/LanguageContext';
 
 /**
- * Pick page content from Markdowns with correct language
+ * Use page content from Markdowns with correct language
  *
  * @param {PageQueryResult} queryResult
  */
@@ -55,4 +55,3 @@ const useLangNode = (queryResult) => {
  * @prop {string} html
  */
 
-export { useLangNode };
