@@ -5,7 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import URI from 'urijs';
 
 /** @type {React.FC} */
-const Language = () => {
+const LanguageSelector = () => {
   const { currentLanguageCode, pathname, languages } = useLanguage();
 
   /**
@@ -44,4 +44,4 @@ const Language = () => {
  * @prop {string} path
  */
 
-export { Language };
+export { LanguageSelector };

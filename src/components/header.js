@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import { Language } from './language';
+import { LanguageSelector } from './language';
 import { Theme } from './theme';
 
 /** @type {React.FC<Props>} */
@@ -31,7 +31,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <Theme />
-      <Language />
+      <LanguageSelector />
     </div>
   </header>
 );
