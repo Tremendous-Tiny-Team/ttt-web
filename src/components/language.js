@@ -10,12 +10,12 @@ const Language = () => {
 
   /**
    *
-   * @param {event} event
+   * @param {React.ChangeEvent<HTMLSelectElement>} event
    * @param {Array<Language>} languages
    */
   const updateLanguage = (event, languages) => {
     const languageCode = event.target.value;
-    const language = languages.find(l => l.code === languageCode);
+    const language = languages.find((l) => l.code === languageCode);
     const path = new URI(pathname)
       .directory(`/${language.path ? language.code : language.path}`)
       .pathname();
@@ -25,9 +25,9 @@ const Language = () => {
   return (
     <select
       value={currentLanguageCode}
-      onChange={event => updateLanguage(event, languages)}
+      onChange={(event) => updateLanguage(event, languages)}
     >
-      {languages.map(language => {
+      {languages.map((language) => {
         return (
           <option key={language.code} value={language.code}>
             {language.code}
