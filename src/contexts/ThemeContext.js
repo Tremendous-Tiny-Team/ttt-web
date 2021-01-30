@@ -1,4 +1,10 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import {
   COLORS,
@@ -7,21 +13,22 @@ import {
 } from '../styles/themes';
 
 /** @type {React.Context<ContextValue>} */
-export const ThemeContext = createContext({
+const ThemeContext = createContext({
   colorMode: null,
   setColorMode: null,
 });
 
 /** @type {React.FC} */
-export const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }) => {
   const [colorMode, rawSetColorMode] = useState(undefined);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const root = window.document.documentElement;
-
-    // Because colors matter so much for the initial page view, we're
-    // doing a lot of the work in gatsby-ssr. That way it can happen before
-    // the React component tree mounts.
+    /**
+     * Because colors matter so much for the initial page view, we're
+     * doing a lot of the work in gatsby-ssr. That way it can happen before
+     * the React component tree mounts.
+     */
     const initialColorValue = root.style.getPropertyValue(
       INITIAL_COLOR_MODE_CSS_PROP
     );
@@ -29,10 +36,9 @@ export const ThemeProvider = ({ children }) => {
     rawSetColorMode(initialColorValue);
   }, []);
 
-
   const contextValue = useMemo(() => {
     /** @param {string} newValue */
-    function setColorMode(newValue) {
+    const setColorMode = (newValue) => {
       const root = window.document.documentElement;
 
       localStorage.setItem(COLOR_MODE_KEY, newValue);
@@ -44,7 +50,7 @@ export const ThemeProvider = ({ children }) => {
       });
 
       rawSetColorMode(newValue);
-    }
+    };
 
     return {
       colorMode,
@@ -58,8 +64,15 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+
+const useTheme = () => {
+    return useContext(ThemeContext);
+};
+
 /**
  * @typedef {Object} ContextValue
  * @prop {string} colorMode
  * @prop {(newValue: string) => void} setColorMode
  */
+
+export { ThemeProvider, useTheme };
