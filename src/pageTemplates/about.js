@@ -4,12 +4,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-import { useLanguage } from '../contexts/LanguageContext';
-import { pickLangNode } from '../utils/language';
+import { useLangNode } from '../hooks/useLangNode';
 
 const AboutPage = () => {
   const data = useStaticQuery(query);
-  const node = pickLangNode(data, useLanguage());
+  const node = useLangNode(data);
   const {
     html,
     frontmatter: { headline },
