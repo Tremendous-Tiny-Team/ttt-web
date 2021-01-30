@@ -31,8 +31,7 @@ const LanguageProvider = ({
 };
 
 const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  return context;
+  return useContext(LanguageContext);
 };
 
 /**
