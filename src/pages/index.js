@@ -5,6 +5,8 @@ import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
 
+import { useLangPath } from '../hooks/LanguageHook';
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -14,9 +16,11 @@ const IndexPage = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/about">Go to about page to test languages</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Link to={useLangPath('page-2')}>Go to page 2</Link>
+    <br />
+    <Link to={useLangPath('about')}>Go to about page to test languages</Link>
+    <br />
+    <Link to={useLangPath('using-typescript')}>Go to "Using TypeScript"</Link>
   </Layout>
 );
 

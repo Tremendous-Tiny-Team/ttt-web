@@ -44,6 +44,22 @@ const useLangNode = (queryResult) => {
 };
 
 /**
+ * Use path from language prefix
+ *
+ * @param {string} pathname
+ */
+const useLangPath = (pathname = '') => {
+  const { currentLanguageCode, languages } = useLanguage();
+  const path = languages.find((l) => l.code === currentLanguageCode).path;
+
+  if (pathname) {
+    return path ? `/${path}/${pathname}` : `/${pathname}`;
+  }
+
+  return path ? `/${path}/` : `/`;
+};
+
+/**
  * @typedef {Object} PageQueryResult
  * @prop {{ edges: Array<{node: QueryNode}>}} allMarkdownRemark
  */
@@ -55,3 +71,4 @@ const useLangNode = (queryResult) => {
  * @prop {string} html
  */
 
+export { useLangNode, useLangPath };
