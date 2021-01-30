@@ -21,7 +21,7 @@ const constructPathPrefix = (path, languages, defaultLanguageCode) => {
     path,
     defaultLanguageCode
   );
-  const codes = languages.map(it => it.code);
+  const codes = languages.map((it) => it.code);
 
   if (codes.indexOf(currentLanguageCode) === -1) {
     console.log(
@@ -31,8 +31,8 @@ const constructPathPrefix = (path, languages, defaultLanguageCode) => {
   }
 
   const language =
-    languages.find(it => it.code === currentLanguageCode) ||
-    languages.find(it => it.code === defaultLanguageCode);
+    languages.find((it) => it.code === currentLanguageCode) ||
+    languages.find((it) => it.code === defaultLanguageCode);
 
   // add language path
   path = path
@@ -49,7 +49,7 @@ const constructPathPrefix = (path, languages, defaultLanguageCode) => {
 /**
  * Pick page content from Markdowns with correct language
  *
- * @param {*} queryResult
+ * @param {PageQueryResult} queryResult
  * @param {LanguageContext} languageContext
  */
 const pickLangNode = (queryResult, languageContext) => {
@@ -57,7 +57,7 @@ const pickLangNode = (queryResult, languageContext) => {
 
   // try to lookup the current lang
   const [edge] = queryResult.allMarkdownRemark.edges.filter(
-    it =>
+    (it) =>
       resolveLangCodeFromFilePath(
         it.node.fileAbsolutePath,
         defaultLanguageCode
@@ -69,7 +69,7 @@ const pickLangNode = (queryResult, languageContext) => {
   }
   // if not found, fall back to default lang
   const [defaultLangEdge] = queryResult.allMarkdownRemark.edges.filter(
-    it =>
+    (it) =>
       resolveLangCodeFromFilePath(
         it.node.fileAbsolutePath,
         defaultLanguageCode
@@ -88,6 +88,18 @@ const pickLangNode = (queryResult, languageContext) => {
 
   return fallbackEdge.node;
 };
+
+/**
+ * @typedef {Object} PageQueryResult
+ * @prop {{ edges: Array<{node: QueryNode}>}} allMarkdownRemark
+ */
+
+/**
+ * @typedef {Object} QueryNode
+ * @prop {string} fileAbsolutePath
+ * @prop {any} frontmatter
+ * @prop {string} html
+ */
 
 /**
  * @typedef {Object} LanguageContext
