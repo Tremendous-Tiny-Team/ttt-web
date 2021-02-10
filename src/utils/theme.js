@@ -5,7 +5,7 @@ import {
   COLOR_MODE_KEY,
   COLORS,
   INITIAL_COLOR_MODE_CSS_PROP,
-} from '../styles/themes';
+} from 'styles/themes';
 
 const setColorsByTheme = () => {
   const colors = '🌈';

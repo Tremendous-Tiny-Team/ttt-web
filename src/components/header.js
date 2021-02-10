@@ -1,10 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import { LanguageSelector } from './language';
-import { Theme } from './theme';
+import { LanguageSelector } from 'components/language';
+import { Theme } from 'components/theme';
 
-import { useLangPath } from '../hooks/LanguageHook';
+import { useLangPath } from 'hooks/LanguageHook';
 
 /** @type {React.FC<Props>} */
 const Header = ({ siteTitle }) => (

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from 'contexts/ThemeContext';
 
-import { THEMES } from '../styles/themes';
+import { THEMES } from 'styles/themes';
 
 /** @type {React.FC} */
 const Theme = () => {

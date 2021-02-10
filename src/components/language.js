@@ -1,7 +1,7 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 
-import { useLanguage } from '../contexts/LanguageContext';
+import { useLanguage } from 'contexts/LanguageContext';
 import URI from 'urijs';
 
 /** @type {React.FC} */
