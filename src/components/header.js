@@ -1,6 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
+
+import { LanguageSelector } from './language';
 import { Theme } from './theme';
+
+import { useLangPath } from '../hooks/LanguageHook';
 
 /** @type {React.FC<Props>} */
 const Header = ({ siteTitle }) => (
@@ -19,7 +23,7 @@ const Header = ({ siteTitle }) => (
     >
       <h1 style={{ margin: 0 }}>
         <Link
-          to="/"
+          to={useLangPath()}
           style={{
             color: `white`,
             textDecoration: `none`,
@@ -29,6 +33,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <Theme />
+      <LanguageSelector />
     </div>
   </header>
 );
