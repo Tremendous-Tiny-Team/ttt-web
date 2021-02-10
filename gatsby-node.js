@@ -104,6 +104,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
+
+// Add webpack config to enable using absolute path for files in src
 exports.onCreateWebpackConfig = ({ _, actions }) => {
   actions.setWebpackConfig({
     resolve: {
