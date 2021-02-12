@@ -29,15 +29,15 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()));
+      result.errors.forEach((e) => console.error(e.toString()));
       return Promise.reject(result.errors);
     }
 
     const posts = result.data.allMarkdownRemark.edges;
 
-    posts.forEach(edge => {
+    posts.forEach((edge) => {
       const { id } = edge.node;
       let { slug } = edge.node.fields;
       const { component: templateKey } = edge.node.frontmatter;
@@ -104,12 +104,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-
 // Add webpack config to enable using absolute path for files in src
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ plugins, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
-  })
+    plugins: [
+      plugins.define({
+        TESTINGA: JSON.stringify(123),
+        TESTINGB: true,
+      }),
+    ],
+  });
 };

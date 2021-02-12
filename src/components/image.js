@@ -30,7 +30,10 @@ const Image = () => {
     return <div>Picture not found</div>;
   }
 
+  // eslint-disable-next-line
+  // if (TESTINGB) {
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+  // }
 };
 
 export default Image;
