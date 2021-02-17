@@ -103,3 +103,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
+
+
+// Add webpack config to enable using absolute path for files in src
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  })
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LanguageProvider } from '../contexts/LanguageContext';
+import { LanguageProvider } from 'contexts/LanguageContext';
 
 /** @type {React.FC<PageProps>} */
 const PageWrapper = ({ children, pageContext, location }) => {

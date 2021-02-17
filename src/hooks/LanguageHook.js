@@ -1,5 +1,5 @@
-import { resolveLangCodeFromFilePath } from '../utils/language';
-import { useLanguage } from '../contexts/LanguageContext';
+import { resolveLangCodeFromFilePath } from 'utils/language';
+import { useLanguage } from 'contexts/LanguageContext';
 
 /**
  * Use page content from Markdowns with correct language

@@ -10,7 +10,7 @@ import {
   COLORS,
   COLOR_MODE_KEY,
   INITIAL_COLOR_MODE_CSS_PROP,
-} from '../styles/themes';
+} from 'styles/themes';
 
 /** @type {React.Context<ContextValue>} */
 const ThemeContext = createContext({
