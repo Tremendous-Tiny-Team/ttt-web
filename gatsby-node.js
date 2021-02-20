@@ -1,6 +1,7 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { constructPathPrefix } = require('./src/utils/language');
+const globals = require('./config').default;
 
 const {
   defaultLanguageCode,
@@ -112,8 +113,7 @@ exports.onCreateWebpackConfig = ({ plugins, actions }) => {
     },
     plugins: [
       plugins.define({
-        TESTINGA: JSON.stringify(123),
-        TESTINGB: true,
+        ...globals,
       }),
     ],
   });

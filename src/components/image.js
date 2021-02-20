@@ -31,9 +31,8 @@ const Image = () => {
   }
 
   // eslint-disable-next-line
-  // if (TESTINGB) {
+  console.log('flag', MULTI_LANGUAGE);
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
-  // }
 };
 
 export default Image;
